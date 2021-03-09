@@ -21,11 +21,11 @@
             "-fdiagnostics-color",
             "-std=gnu99",
             "-o",
-            "bin/auto.c.o",
-            "src/auto.c"
+            "bin/init.c.o",
+            "src/init.c"
         ],
-        "directory": "/Users/dirkwrightthe2nd/Documents/RoboCarTeleOp_3",
-        "file": "src/auto.c"
+        "directory": "/Users/aidanalcala/Other/Robotics/Car2",
+        "file": "src/init.c"
     },
     {
         "arguments": [
@@ -49,11 +49,11 @@
             "-fdiagnostics-color",
             "-std=gnu99",
             "-o",
-            "bin/init.c.o",
-            "src/init.c"
+            "bin/auto.c.o",
+            "src/auto.c"
         ],
-        "directory": "/Users/dirkwrightthe2nd/Documents/RoboCarTeleOp_3",
-        "file": "src/init.c"
+        "directory": "/Users/aidanalcala/Other/Robotics/Car2",
+        "file": "src/auto.c"
     },
     {
         "arguments": [
@@ -80,7 +80,7 @@
             "bin/opcontrol.c.o",
             "src/opcontrol.c"
         ],
-        "directory": "/Users/dirkwrightthe2nd/Documents/RoboCarTeleOp_3",
+        "directory": "/Users/aidanalcala/Other/Robotics/Car2",
         "file": "src/opcontrol.c"
     }
 ]
