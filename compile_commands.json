@@ -24,7 +24,11 @@
             "bin/opcontrol.c.o",
             "src/opcontrol.c"
         ],
+<<<<<<< HEAD
         "directory": "/Users/dirkwrightthe2nd/Documents/RoboCarTeleOp_3",
+=======
+        "directory": "/Users/diego/github/RoboCarTeleOp_3",
+>>>>>>> bc18afaa6b3b0bc5b0b1b5aca89ea0cfda6da9c6
         "file": "src/opcontrol.c"
     }
 ]
