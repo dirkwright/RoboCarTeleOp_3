@@ -26,7 +26,7 @@
 #define MAIN_H_
 
 #include <API.h>
-
+Ultrasonic noiseMaker;
 // Allow usage of this file in C++ programs
 #ifdef __cplusplus
 extern "C" {
