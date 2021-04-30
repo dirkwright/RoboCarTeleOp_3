@@ -18,6 +18,7 @@
  * configure a UART port (usartOpen()) but cannot set up an LCD (lcdInit()).
  */
 void initializeIO() {
+ noiseMaker = ultrasonicInit (11,12);
 }
 
 /*
