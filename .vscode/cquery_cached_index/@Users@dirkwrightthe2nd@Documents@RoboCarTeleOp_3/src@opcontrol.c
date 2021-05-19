@@ -18,6 +18,9 @@ void operatorControl() {
 	int controlMode = 1;
 
 	int range;
+	int preRange;
+
+
 
 	int motr;
 	double turnJ;
@@ -40,7 +43,12 @@ void operatorControl() {
 			motorControl(turnJ,motr);
 		}else{
 			range=ultrasonicGet(noiseMaker);
-			motorControl(range-128,30);
+			if (range < 0){range=preRange;}
+			if (range>20){motr=((range+20)/2);}else{motr=20;}
+			if (range < 64){turnJ= -2 * sqrt(pow(64,2)+pow(range,2));}
+			else{turnJ=0;}
+			motorControl(turnJ,motr);
+			preRange=range;
 		}
 	}
 }
