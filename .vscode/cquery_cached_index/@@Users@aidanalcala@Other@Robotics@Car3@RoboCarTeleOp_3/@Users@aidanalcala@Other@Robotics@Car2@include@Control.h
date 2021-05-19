@@ -66,8 +66,6 @@ void motorControl(double turnJ, int motr){
   motorSet(9,-1*motr);
 //akerman steering
   turnJ*=-1;
-	if (turnJ< -127){turnJ= 127;}
-	if (turnJ> 127){turnJ= 127;}
   if (turnJ==0){turnJ=.1;}
   turnJ=Length/tan(turnJ/150.0);
   lt = sl*atan(Length/(turnJ-hWidth))+lS;
