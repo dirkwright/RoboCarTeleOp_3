@@ -44,7 +44,11 @@ void operatorControl() {
 		}else{
 			range=ultrasonicGet(noiseMaker);
 			if (range < 0){range=preRange;}
+<<<<<<< HEAD
 			if (range>20){motr=((range+40)/2);}else{motr=40;}
+=======
+			if (range>20){motr=((range+40)/2);}else{motr=60;}
+>>>>>>> daa76a9c43f9e736b0146e3e82e10c7213e8bc6e
 			if (range < 64){turnJ= -2 * sqrt(pow(64,2)+pow(range,2));}
 			else{turnJ=0;}
 			motorControl(turnJ,motr);
