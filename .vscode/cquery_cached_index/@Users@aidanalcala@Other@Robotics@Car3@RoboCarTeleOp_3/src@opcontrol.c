@@ -16,10 +16,10 @@ void operatorControl() {
 
 
 	int controlMode = 1;
-
 	int range;
 	int preRange;
-
+	int range2;
+	int preRange2;
 
 
 	int motr;
@@ -27,7 +27,11 @@ void operatorControl() {
 
 	while (1) {
 
+		range2=ultrasonicGet(oiseMaker2);
 
+		digitalWrite(1, true);
+		digitalWrite(2, range2>10);
+		digitalWrite(3, false);
 
 
 		if (joystickGetDigital(1, 8, JOY_DOWN)){turnHoming();}
@@ -44,8 +48,8 @@ void operatorControl() {
 		}else{
 			range=ultrasonicGet(noiseMaker);
 			if (range < 0){range=preRange;}
-			if (range>20){motr=((range+20)/2);}else{motr=20;}
-			if (range < 64){turnJ= -2 * sqrt(pow(64,2)+pow(range,2));}
+			if (range>20){motr=((range+80)/5);}else{motr=20;}
+			if (range < 100){turnJ= 1.1*(range-128);}
 			else{turnJ=0;}
 			motorControl(turnJ,motr);
 			preRange=range;

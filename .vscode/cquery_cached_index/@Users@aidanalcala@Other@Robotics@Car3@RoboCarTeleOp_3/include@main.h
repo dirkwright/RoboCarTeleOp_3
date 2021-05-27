@@ -27,6 +27,7 @@
 
 #include <API.h>
 Ultrasonic noiseMaker;
+Ultrasonic oiseMaker2;
 // Allow usage of this file in C++ programs
 #ifdef __cplusplus
 extern "C" {

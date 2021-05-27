@@ -7,6 +7,29 @@
 	int r;
 	int lt;
 	int rt;
+	int lError;
+	int rError;
+	int lo;
+	int ro;
+
+	double lp;
+	double li;
+	double ld;
+
+	double rp;
+	double ri;
+	double rd;
+
+	int time=0;
+	int prevTime;
+	int dt;
+
+	int plError;
+	int prError;
+
+	double pk = .1;
+	double ik = 0.00001;
+	double dk = 0.03;
 //numbers from calibration go here
 	int lS=1830;
 	int rS=1777;
@@ -58,8 +81,8 @@ void motorControl(double turnJ, int motr){
 //my attempt to get slow moving to work
 //better, applies when the joystick is < 30
   if((motr*motr)<900){
-    if (millis()%2==0){motr=motr*.3;}
-    else{motr=motr*2;}
+    if (millis()%2==0){}
+    else{motr=motr*2.5;}
   }
 //sets motor speed
   motorSet(2,-1*motr);
@@ -75,22 +98,28 @@ void motorControl(double turnJ, int motr){
 //clc section
   l = analogRead(1);
   r = analogRead(2);
-    if (abs(l-lt) > 501){
-      motorSet(1, -.1*(l-lt));
-    }
-    else if (abs(l-lt) < 50){
-      motorSet(1, -.1*(l-lt));
-    }
-    else{
-    motorSet(1, -.05*(l-lt));
-    }
-    if (abs(r-rt) > 500){
-      motorSet(10, -.1*(r-rt));
-    }
-    else if (abs(r-rt) < 50){
-      motorSet(10, -.1*(r-rt));
-    }
-    else{
-    motorSet(10, -.05*(r-rt));
-  }
+	lError = lt-l;
+	rError = rt-r;
+	prevTime=time;
+	time=millis();
+	dt=time-prevTime;
+
+//Proportional
+	lp=lError*pk;
+	rp=rError*pk;
+//Integral
+	li=li+(ik*lError*dt);
+	ri=ri+(ik*rError*dt);
+//Derivitive
+	ld=dk*((lError-plError)/dt);
+	rd=dk*((rError-prError)/dt);
+
+
+	lo=lp+li+ld;
+	ro=rp+ri+rd;
+	motorSet(1, lo);
+	motorSet(10,ro);
+
+	plError=lError;
+	prError=rError;
 }
